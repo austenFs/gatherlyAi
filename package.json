@@ -1,0 +1,33 @@
+{
+  "name": "gatherlyai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "compose:infrastructure": "docker compose --profile infrastructure up -d",
+    "compose:service": "docker compose --profile service up --build",
+    "compose:all": "docker compose --profile infrastructure --profile service up --build",
+    "compose:down": "docker compose down",
+    "compose:clean": "docker compose down -v --rmi all"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
